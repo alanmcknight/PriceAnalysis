@@ -2,23 +2,31 @@ library(leaflet)
 ui = fluidPage(
   
 navbarPage(
-    title = 'Pricing Analysis Tool',
+    title = "Pricing Analysis Tool",
     tabPanel('Top 3 Projections',   
              sidebarPanel(
+               selectInput("filterName1", "Select Insurer to review", choices = c("ABC Insurance", "AXA Insurance", "Chaucer Insurance", "Covea", "Highway Insurance", "Sabre Insurance", "Zenith Marque")),
                sliderInput("integer", "Adjust price by (£):", 
-                           min=-100, max=-5, value=-20, step= 5), 
+                           min=-75, max=75, value=-20, step= 5), 
+               sliderInput("percentage", "Adjust price by (%):", 
+                           min=-25, max=0, value=0, step= 1), 
                htmlOutput("selectUI"), width = 8), 
              mainPanel(h3("Overall"),
                        fluidRow(column(dataTableOutput(outputId ="my_output_data5"), width =8)), 
                        br(),
-                       h3("Top1s by filter criteria"),
-                       fluidRow(column(dataTableOutput(outputId ="my_output_data7"), width =8)))
+                       h3("Top 1s by filter criteria"),
+                       fluidRow(column(dataTableOutput(outputId ="my_output_data7"), width =8)),
+                       br(),
+                       h3("Panel Sales by filter criteria"),
+                       fluidRow(column(dataTableOutput(outputId ="my_output_data10"),width =8)))
     ),
     tabPanel(
       'Graphs',  
       sidebarPanel(
         sliderInput("integer2", "Adjust price by (£):", 
-                    min=-100, max=-5, value=-20, step= 5), 
+                    min=-100, max=0, value=0, step= 5), 
+        sliderInput("percentage2", "Adjust price by (%):", 
+                    min=-25, max=0, value=0, step= 1), 
         htmlOutput("selectUI2"), width = 8), 
       mainPanel(
              fluidPage( 
