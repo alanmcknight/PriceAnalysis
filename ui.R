@@ -5,7 +5,7 @@ navbarPage(
     title = "Pricing Analysis Tool",
     tabPanel('Top 3 Projections',   
              sidebarPanel(
-               selectInput("filterName1", "Select Insurer to review", choices = c("ABC Insurance", "AXA Insurance", "Chaucer Insurance", "Covea", "Highway Insurance", "Sabre Insurance", "Zenith Marque")),
+               selectInput("filterName1", "Select Insurer to review", choices = c("ABC Insurance", "Allianz Insurance","AXA Insurance", "AXA Insurance NI", "Chaucer Insurance", "Covea Insurance", "Highway Insurance", "Legal & General", "Ocaso", "Prestige Insurance", "Sabre Insurance", "Towergate", "Zenith", "Zenith Marque Insurance")),
                sliderInput("integer", "Adjust price by (£):", 
                            min=-75, max=75, value=0, step= 5), 
                sliderInput("percentage", "Adjust price by (%):", 
@@ -37,7 +37,7 @@ navbarPage(
     #           plotOutput(outputId = "main_plot2", width = "100%", height = "300px")
     #          ))),
     tabPanel('Top 1s',  mainPanel(
-      selectizeInput("dataset", "Select data breakdown criteria", choices = c("Age", "Age.Range", "AGREGATOR.x", "Day.of.Week", "Drivers.to.be.insured.", "Email.Domain", "Employment.Status", "Has.the.vehicle.been.modified.in.any.way.e.g..alloy.wheels..tow.bar.etcâ..", "Have.you.had.any.unspent.non.motoring.criminal.convictions.", "Have.you.or.any.driver.ever.had.insurance.declined..cancelled.or.special.terms.imposed.", "How.many.years.no.claims.bonus..NCB..do.you.have.", "Have.you.been.regularly.driving.a.car.not.insured.by.you.", "How.many.years.claim.free.driving.do.you.have.on.the.car.not.insured.by.you.",  "Insurer", "Is.the.vehicle.a.grey.or.parallel.import.", "Postcode.Area", "Postcode.Region", "Post.Code.Prefix", "Price.Range", "Proposer.Claims.Count", "Proposer.Convictions.Count", "QUOTE.REFERENCE", "SYSTEM.NAME", "Type.of.driving.licence", "UK.Residency.Years", "Vehicle.Value.Range", "Vehicle.Year.of.Manufacture", "Voluntary.excess.", "What.is.the.estimated.value.of.the.vehicle.", "What.type.of.cover.would.you.like."),
+      selectizeInput("dataset", "Select data breakdown criteria", choices = c("Age", "Age.Range", "AGREGATOR","Day.of.Week.Quote", "Drivers.to.be.insured.", "Email.Domain.1", "Employment.Status", "Has.the.vehicle.been.modified.in.any.way.e.g..alloy.wheels..tow.bar.etcâ..", "Have.you.had.any.unspent.non.motoring.criminal.convictions.", "Have.you.or.any.driver.ever.had.insurance.declined..cancelled.or.special.terms.imposed.", "How.many.years.no.claims.bonus..NCB..do.you.have.", "Have.you.been.regularly.driving.a.car.not.insured.by.you.", "How.many.years.claim.free.driving.do.you.have.on.the.car.not.insured.by.you.",  "Insurer", "Is.the.vehicle.a.grey.or.parallel.import.", "Postcode.Area", "Postcode.Region", "Post.Code.Prefix", "Price.Range", "Proposer.Claims.Count", "Proposer.Convictions.Count", "QUOTE.REFERENCE", "SYSTEM.NAME", "Type.of.driving.licence", "UK.Residency.Years", "Vehicle.Value.Range", "Vehicle.Year.of.Manufacture", "Voluntary.excess.", "What.is.the.estimated.value.of.the.vehicle.", "What.type.of.cover.would.you.like."),
                      multiple = TRUE, options = list(maxItems = 3)),
       fluidRow(column(dataTableOutput(outputId ="my_output_data11"), width =10), width = 12)
     )),
